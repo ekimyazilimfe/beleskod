@@ -1,7 +1,7 @@
 "use server"
 
-export async function BasvuruYapAksiyonu(prevState, formData){
-    const formObj = Object.fromEntries(formData);
+export async function BasvuruYapAksiyonu(values){
+    // const formObj = Object.fromEntries(formData);
     // console.log(formObj);
 
     // const errors = {}
@@ -41,15 +41,27 @@ export async function BasvuruYapAksiyonu(prevState, formData){
     // });
     
     // return { errors };
+    
+    let errors = {}
+    if(values.step == 1){
+        errors = {
+            name: !values.name ? "İsim boş olamaz" : null,
+            surname: !values.surname ? "Soyad boş olamaz" : null,
+            phone: !values.phone ? "Telefon alanı boş olamaz" : null,
+            tcno: !values.tcno ? "TCNO alanı boş olamaz" : null
+        };
 
-    const errors = {
-        name: !formObj.name && "İsim boş olamaz",
-        surname: !formObj.surname && "Soyad boş olamaz",
-        phone: !formObj.phone && "Telefon alanı boş olamaz",
-        tcno: !formObj.tcno && "TCNO alanı boş olamaz"
-    };
-      
-    return { errors };
+        for (const key in errors) {
+            if (Object.prototype.hasOwnProperty.call(errors, key)) {
+                const element = errors[key];
+                if(element) return { errors }
+                
+            }
+        }
+    }
+    
+    console.log("test");
+    
     
 }
 
