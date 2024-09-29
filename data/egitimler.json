@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "adi": "Backend",
+    "kategoriId": 1,
+    "isOnline": true,
+    "isOffline": true
+  },
+  {
+    "id": 2,
+    "adi": "Frontend",
+    "kategoriId": 1,
+    "isOnline": true,
+    "isOffline": false
+  },
+  {
+    "id": 3,
+    "adi": "Dijital ünlü olma tiktok çekme eğitimi kampı falan filan",
+    "kategoriId": 2,
+    "isOnline": false,
+    "isOffline": true
+  }
+]
